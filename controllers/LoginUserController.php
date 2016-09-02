@@ -60,12 +60,30 @@ class LoginUserController extends Controller {
      * @return mixed
      */
     public function actionCreate() {
-        
+
         $model = new LoginUser();
-        
-        if ($model->load(Yii::$app->request->post()) && $model->save()  ) {
-            
-            return $this->redirect(['index', 'id' => $model->id]);
+
+        $request = Yii::$app->request;
+
+        if ($request->isPost) {
+
+            $form = $request->post('LoginUser');
+
+            $model->setAttributes([
+                'email' => $form['email'],
+                'firstname' => $form['firstname'],
+                'lastname' => $form['lastname'],
+            ]);
+
+            $password = $form['password'];
+            if ($password) {
+                $hash = Yii::$app->getSecurity()->generatePasswordHash($password);
+                $model->setAttribute('password', $hash);
+            }
+
+            if ($model->save()) {
+                return $this->redirect(['index', 'id' => $model->id]);
+            }
         } else {
             return $this->render('create', [
                         'model' => $model,
@@ -82,8 +100,27 @@ class LoginUserController extends Controller {
     public function actionUpdate($id) {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['index', 'id' => $model->id]);
+        $request = Yii::$app->request;
+
+        if ($request->isPost) {
+
+            $form = $request->post('LoginUser');
+
+            $model->setAttributes([
+                'email' => $form['email'],
+                'firstname' => $form['firstname'],
+                'lastname' => $form['lastname'],
+            ]);
+
+            $password = $form['password'];
+            if ($password) {
+                $hash = Yii::$app->getSecurity()->generatePasswordHash($password);
+                $model->setAttribute('password', $hash);
+            }
+
+            if ($model->save()) {
+                return $this->redirect(['index', 'id' => $model->id]);
+            }
         } else {
             return $this->render('update', [
                         'model' => $model,

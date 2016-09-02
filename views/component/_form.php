@@ -33,8 +33,8 @@ use yii\widgets\ActiveForm;
                         <div class="col-md-12 ">
 
                             <div class="col-md-6 ">
-                                <input type="hidden" name="dependantID" value="<?= $model->id ?>" />
-                                <select name="ids[0][id]" class="form-control">
+                                <input type="hidden" class="deleteMe" name="ids[<?= $model->id ?>][dependentId]" value="<?= $model->id ?>" />
+                                <select name="ids[<?= $model->id ?>][id]" class="form-control">
 
                                     <?php foreach ($components as $component) : ?>
                                         <option value="<?= $component->id ?>" 
@@ -43,7 +43,7 @@ use yii\widgets\ActiveForm;
                                 </select>
                             </div> 
                             <div class="col-md-4 ">
-                                <input type="text" name="ids[0][quantity] " value="<?= $model->count ?>" class="form-control" placeholder="Enter amount" required  >
+                                <input type="text" name="ids[<?= $model->id ?>][quantity] " value="<?= $model->count ?>" class="form-control" placeholder="Enter amount" required  >
                             </div>
 
                             <button class="btn btn-default remove_field "><span class="glyphicon glyphicon-trash"></span></button>
@@ -53,7 +53,6 @@ use yii\widgets\ActiveForm;
 
                     <div class="col-md-12 ">
                         <div class="col-md-6 ">
-
                             <select name="ids[0][id]" class="form-control">
                                 <option>- Select component -</option>
                                 <?php foreach ($components as $component) : ?>
@@ -77,6 +76,7 @@ use yii\widgets\ActiveForm;
                     <div class="col-md-12 ">
                         <div class="col-md-6 ">
                             <b> Dependent Component</b>
+                            <input type="hidden" class="deleteMe" name="ids[0][dependentId]" value="<?= $model->id ?>" />
                             <select name="ids[0][id]" class="form-control">
                                 <option>- Select component -</option>
                                 <?php foreach ($components as $component) : ?>
@@ -120,7 +120,7 @@ use yii\widgets\ActiveForm;
                 x++; //text box increment
                 wrapper.append('<div class="col-md-12 ">\
                                     <div class="col-md-6">\
-                                        <input type="hidden" name="dependantID" value="" />\
+                                        <input type="hidden" class="deleteMe" name="ids[' + x + '][dependentId]" value="" />\
                                         <select name="ids[' + x + '][id]" class="form-control">\\n\
                                                     <option>- Select component -</option>\
                                         <?php foreach ($components as $component) : ?>\
@@ -140,7 +140,7 @@ use yii\widgets\ActiveForm;
 
 
         wrapper.on("click", ".remove_field", function (e) {
-            var clickedId = $(this).parent().find('input[name="dependantID"]').val();
+            var clickedId = $(this).parent().find('input[class="deleteMe"]').val();
 
             var deletedIdsArray = $('#deletedIDs');
             console.log($('#deletedIDs'));

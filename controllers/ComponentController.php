@@ -125,7 +125,13 @@ class ComponentController extends Controller {
             $dependendComponents = Yii::$app->request->bodyParams['ids'];
 
             foreach ($dependendComponents as $dComp) {
-                $dependencyModel = new Dependency();
+                
+                if(array_key_exists('dependentId', $dComp) && isset($dComp['dependentId'])) {
+                    $dependencyModel = Dependency::find()->where(['id' => $dComp['dependentId']])->one();
+                } else {
+                    $dependencyModel = new Dependency();
+                }
+                
                 $dependencyModel->setAttributes([
                     'count' => $dComp['quantity'],
                     'component_id' => $model->id,
@@ -133,6 +139,7 @@ class ComponentController extends Controller {
                 ]);
                 $dependencyModel->save();
             }
+
             return $this->redirect(['index', 'id' => $model->id]);
         } else {
             return $this->render('update', [
