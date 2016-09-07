@@ -24,14 +24,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'instock',
             [
-                'class' => 'yii\grid\DataColumn',
+                'class' => 'yii\grid\DataColumn', // can be omitted, as it is the default
                 'label' => 'Tractor Model Used In',
                 'value' => function ($data) {
-                    return $data->getTractorModel()->one()->model;
+                    return $data->getTractorModel()->one()->model; // $data['name'] for array data, e.g. using SqlDataProvider.
                 },
             ],
             [
-                'class' => 'yii\grid\DataColumn',
+                'class' => 'yii\grid\DataColumn', // can be omitted, as it is the default
                 'label' => 'Dependent Component',
                 'value' => function ($data) {
                     return count($data->dependencies);

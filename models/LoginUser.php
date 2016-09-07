@@ -19,7 +19,6 @@ class LoginUser extends \yii\db\ActiveRecord implements \yii\web\IdentityInterfa
     public $newpassword;
     public $newpasswordconfirm;
     public $hash;
-
     /**
      * @inheritdoc
      */
@@ -30,13 +29,12 @@ class LoginUser extends \yii\db\ActiveRecord implements \yii\web\IdentityInterfa
     /**
      * @inheritdoc
      */
-    public function rules() {
+   public function rules() {
         return [
             [['email', 'password', 'firstname', 'lastname'], 'required'],
             [['email'], 'email'],
             [['password'], 'string', 'min' => 7, 'max' => 256],
             ['expiredate', 'integer'],
-//            [['password', 'firstname', 'lastname'], 'string', 'max' => 56],
             [['token'], 'string', 'max' => 64],
         ];
     }
@@ -56,7 +54,7 @@ class LoginUser extends \yii\db\ActiveRecord implements \yii\web\IdentityInterfa
         ];
     }
 
-    public function getId() {
+     public function getId() {
         return $this->id;
     }
 

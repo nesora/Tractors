@@ -43,9 +43,9 @@ class LoginForm extends Model {
     public function validatePassword($attribute, $params) {
         if (!$this->hasErrors()) {
             $user = $this->getUser();
-            
-            if (!$user || !Yii::$app->getSecurity()->validatePassword($this->password, $user->password)) {
-                $this->addError($attribute, 'Incorrect username or password.');
+
+          if (!$user || !Yii::$app->getSecurity()->validatePassword($this->password, $user->password)) {
+                 $this->addError($attribute, 'Incorrect username or password.');
             }
         }
     }

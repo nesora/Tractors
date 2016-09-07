@@ -35,11 +35,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'instock',
             [
                 'label' => 'Tractor Model Used In',
-                'value' => $model->getTractorModel()->one()->model,
+                'value' => $model->tractormodel_id,
             ],
             [
                 'label' => 'Dependent Component',
-                'value' => count($model->dependencies),
+                'value' => $model->dependentcomponent,
             ],
         ],
     ])
