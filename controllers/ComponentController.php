@@ -126,15 +126,9 @@ class ComponentController extends Controller {
 
             foreach ($dependendComponents as $dComp) {
 
-//                if (array_key_exists('dependentId', $dComp) && isset($dComp['dependentId'])) {
-//                    $dependencyModel = Dependency::find()->where(['id' => $dComp['dependentId']])->one();
-//                } else {
-//                    $dependencyModel = new Dependency();
-//                }
-
                 if (array_key_exists('dependentId', $dComp) && isset($dComp['dependentId'])) {
                     $dependencyModel = Dependency::find()->where(['id' => $dComp['dependentId']])->one();
-                if (!$dependencyModel) {
+                    if (!$dependencyModel) {
                         $dependencyModel = new Dependency();
                     }
                 } else {
