@@ -1,6 +1,6 @@
-html,
-body {
+body, html {
     height: 100%;
+    width: 100%;
 }
 
 .wrap {
@@ -88,4 +88,32 @@ a.desc:after {
     border-left: 3px solid #eed3d7;
     padding: 10px 20px;
     margin: 0 0 15px 0;
+}
+
+.background-wrapper{
+    background-image: url('images/1.jpg');
+    height: 100%;
+    width: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.container-login{
+    padding: 0px 0px 0px 33%;
+}
+.login-message{
+     padding: 0px 0px 0px 140px;
+     margin-bottom: 8px;
+}
+.remember-checkbox{
+    padding: 0px 0px 0px 26px;
+}
+.forgot-pas{
+     padding: 0px 0px 0px 17px;
+     margin-top: -2%;
+}
+.login-button{
+         padding: 0px 0px 0px 48px;
+         margin-top: -10px;
 }

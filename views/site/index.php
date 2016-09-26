@@ -8,14 +8,10 @@
         <div class="container">
 
             <ul id="exampleSlider" style="list-style-type:none">
-                <li><img src="http://goo.gl/oGUaIQ" alt="" /></li>
-                <li><img src="http://goo.gl/8494zr" alt="" /></li>
                 <li><img src="http://goo.gl/hmAsB9" alt="" /></li>
                 <li><img src="http://goo.gl/wkgVSH" alt="" /></li>
                 <li><img src="http://goo.gl/eq3qhS" alt="" /></li>
                 <li><img src="https://goo.gl/Jva4sA" alt="" /></li>
-
-
             </ul>
 
         </div>

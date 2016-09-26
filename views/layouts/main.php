@@ -23,13 +23,11 @@ AppAsset::register($this);
     </head>
     <body>
         <?php $this->beginBody() ?>
+        <div class="wrap <?= (Yii::$app->controller->action->id == 'login') ? 'background-wrapper' : NULL ?>">
 
-        <div class="wrap">
             <?php
-            
-            
             NavBar::begin([
-                'brandLabel' => 'Tractors',
+               // 'brandLabel' => 'Tractors',
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
                     'class' => 'navbar-inverse navbar-fixed-top',
@@ -64,20 +62,18 @@ AppAsset::register($this);
             ?>
 
             <div class="container">
-
                 <?= $content ?>
             </div>
         </div>
-
         <footer class="footer">
             <div class="container">
                 <p class="pull-left">&copy; RosS  <?= date('Y') ?></p>
-
                 <p class="pull-right"><?= Yii::powered() ?></p>
             </div>
         </footer>
 
         <?php $this->endBody() ?>
+
     </body>
 </html>
 <?php $this->endPage() ?>

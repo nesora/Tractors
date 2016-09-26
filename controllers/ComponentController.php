@@ -128,8 +128,8 @@ class ComponentController extends Controller {
 
                 if (array_key_exists('dependentId', $dComp) && isset($dComp['dependentId'])) {
                     $dependencyModel = Dependency::find()->where(['id' => $dComp['dependentId']])->one();
-                    if (!$dependencyModel) {
-                        $dependencyModel = new Dependency();
+                         if (!$dependencyModel) {
+                             $dependencyModel = new Dependency();
                     }
                 } else {
                     $dependencyModel = new Dependency();
