@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'id' => 'login-form',
                 'options' => ['class' => 'form-horizontal'],
                 'fieldConfig' => [
-                    'template' => "{label}\n <div class=\"center\"><div class=\"col-sm-6 col-md-4 col-lg-4 \">{input}</div>\n<div class=\" col-sm-7 col-md-5 col-lg-7\">{error}</div></div>",
+                    'template' => "{label}\n <div class=\"center\"><div class=\"col-xs-6 col-sm-3 col-md-4 col-lg-4 \">{input}</div>\n<div class=\" col-xs-4 col-sm-4 col-md-5 col-lg-7\">{error}</div></div>",
                     'labelOptions' => ['class' => 'col-lg-1 col-md-1 control-label'],
                 ],
     ]);
@@ -32,6 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= $form->field($model, 'email')->textInput(['autofocus' => true, 'placeholder' => 'Write your email address']) ?>
 
     <?= $form->field($model, 'password')->passwordInput(['placeholder' => 'Write your password']) ?>
+
     <div class="remember-checkbox">
         <?=
         $form->field($model, 'rememberMe')->checkbox([
@@ -40,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ?>
     </div>
     <div class="form-group">
-        <div class="col-lg-offset-1 col-sm-10 col-md-11 col-lg-11">
+        <div class="col-lg-offset-1 col-xs-10 col-sm-10 col-md-11 col-lg-11">
             <div class="forgot-pas">
                 <?= Html::a(Yii::t("app", "Forgotten  password") . "?", ["/site/forgot"]) ?>
                 <br>
